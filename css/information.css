@@ -1,22 +1,26 @@
-*{
+* {
     box-sizing: border-box;
 }
-article{
+
+article {
     width: 100%;
     height: 100%;
 }
-.registerPage,.messagePage{
+
+.registerPage, .messagePage {
     /*height: 100%;*/
     /*padding-bottom: 28vw;*/
     /*box-sizing: content-box;*/
 }
-.registerPage .bgImg{
+
+.registerPage .bgImg {
     width: 100%;
     height: 185vw;
-    background: url("../img/bg.png")  no-repeat;
+    background: url("../img/bg.png") no-repeat;
     background-size: 100% 100%;
 }
-.serviceData{
+
+.serviceData {
     padding: 1vw 2vw;
     color: #031D96;
     font-size: 4vw;
@@ -25,63 +29,75 @@ article{
     top: 20vw;
     left: 64vw;
 }
-a{
+
+a {
     text-decoration: none;
     color: #000;
-    -webkit-tap-highlight-color:rgba(255,0,0,0);
+    -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
 }
-i{
-   font-style: normal;
+
+i {
+    font-style: normal;
 }
-.clearfix:after{
-    clear:both;
-    content:"";
-    display:block;
-    height:0;
-    line-height:0;
-    visibility:hidden;
-    overflow:hidden;
+
+.clearfix:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    overflow: hidden;
 }
-.clearfix{
-    zoom:1;
+
+.clearfix {
+    zoom: 1;
 }
+
 /*二维码弹出层*/
-.codePop{
-    background: rgba(135,135,135,0.8);
+.codePop {
+    background: rgba(135, 135, 135, 0.8);
     overflow: hidden;
     position: fixed;
     width: 100%;
     height: 100%;
     z-index: 10;
 }
-.twoCode{
-   position: absolute;
-   top:25vw;
-   left: 15vw;
-   z-index: 11;
+
+.twoCode {
+    position: absolute;
+    top: 25vw;
+    left: 15vw;
+    z-index: 11;
 }
-.codeImg{
+
+.codeImg {
     width: 70vw;
-    height:70vw;
+    height: 70vw;
     margin-bottom: -1.2vw;
     display: inline-block;
 }
-.btmText{
+
+.btmText {
     width: 70vw;
     text-align: left;
     background-color: #efc884;
     padding: 0 3vw;
 }
-ol{
-   padding-left: 5vw;
+
+ol {
+    padding-left: 5vw;
 }
-.padBtm{
+
+.padBtm {
     padding-bottom: 3vw;
- }
-.btmText ol li{
+}
+
+.btmText ol li {
     padding-top: 3vw;
 }
-.offCd{
+
+.offCd {
     width: 8vw;
     height: 8vw;
     color: #fff;
@@ -98,25 +114,29 @@ ol{
 
 
 /*信息录入*/
-.messagePage .msgHeaderImg{
+.messagePage {
     width: 100%;
-    height: 50vw;
-    background: url(../img/headerpic.png) #FBFCFC center center no-repeat;
+    height: 100%;
+    padding-top: 39.7vw;
+    background: url(../img/bg.png) #FBFCFC center center no-repeat;
     background-size: 100% 100%;
+    text-align: center;
 }
-.messagePage .msgFooterImg{
+
+/*.messagePage .msgFooterImg{
     width: 100%;
     height: 25vw;
     background: url(../img/footerpic.png) #FBFCFC center center no-repeat;
     background-size: 100% 100%;
-}
-.inputMsg{
+}*/
+.inputMsg {
+    margin: 0 auto;
     width: 100%;
-    padding: 0 4vw;
     display: inline-block;
-    background-color: #FBFCFC;
+    margin-top: 10.53vw;
 }
-.inputMsg span{
+
+.inputMsg span {
     display: inline-block;
     color: #000;
     width: 22vw;
@@ -124,7 +144,8 @@ ol{
     text-align: right;
     line-height: 12vw;
 }
-.inputMsg .msgTitle{
+
+.inputMsg .msgTitle {
     text-align: center;
     font-weight: bold;
     color: #1E8536;
@@ -135,7 +156,8 @@ ol{
     background: url(../img/msgIcon.png) left center no-repeat;
     background-size: 6vw;
 }
-.inputMsg .carTitle{
+
+.inputMsg .carTitle {
     text-align: center;
     font-weight: bold;
     color: #EF880F;
@@ -146,52 +168,85 @@ ol{
     background: url(../img/msgIcon01.png) left center no-repeat;
     background-size: 6vw;
 }
-.inputMsg input{
-    width: 64vw;
-    height: 10vw;
-    padding-left: 5vw;
-    border: 1px solid grey;
-    outline: none;
-    font-size: 3.8vw;
-    border-radius: 1vw;
-    background-color: #fff;
-    color: #000
+
+.inputMsg input {
+    width: 67vw;
+    height: 10.6vw;
+    padding-left: 10vw;
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 40px;
+    color: #B9B9B9;
+    font-size: 3.46vw;
 }
-.magBtm{
+.inputMsg input::placeholder{
+    color: #B9B9B9;
+}
+
+.magBtm {
     position: relative;
-    margin-bottom: 2vw;
-    height: 12vw;
+    margin: 0 auto;
+    margin-bottom: 2.67vw;
+    /*height: 10.67vw;*/
+    width: 67.06vw;
+    text-align: left;
 }
-.inputMsg .yzCode .inputCode{
+
+.magBtm .icon {
+    position: absolute;
+    top: 50%;
+    left: 4vw;
+    width: 3.6vw;
+    line-height: 10.67vw;
+    transform: translateY(-50%);
+}
+
+.magBtm .info {
+    width: auto;
+    font-size: 2.93vw;
+    color: #686868;
+    line-height: 0;
+    text-align: left;
+}
+
+.magBtm .info::before {
+    content: "*";
+    color: #B3DA43;
+}
+
+.magBtm .getCode {
+    font-size: 3vw;
+    color: #fff;
+    text-align: center;
+    line-height: 7.73vw;
+    background-color: #B3DA43;
+    width: 23.2vw;
+    height: 7.73vw;
+    border-radius: 3.86vw;
+    border: 1px solid #B3DA43;
+    position: absolute;
+    top: 50%;
+    right: 1.47vw;
+    transform: translateY(-50%);
+}
+
+.inputMsg .yzCode .inputCode {
     position: absolute;
     margin-left: 1.2vw;
     width: 38vw;
 }
-.getCode{
-    font-size: 3vw;
-    color:#fff;
-    text-align: center;
-    line-height: 10vw;
-    background-color: #499def;
-    width: 22vw;
-    height: 10vw;
-    border-radius: 1vw;
-    border: 1px solid #fff;
-    position: absolute;
-    top:0;
-    left: 63vw;
-}
-.codeText{
+
+.codeText {
     vertical-align: -webkit-baseline-middle;
 }
+
 /*.placeholderColor::-webkit-input-placeholder{*/
-    /*color:gainsboro;*/
+/*color:gainsboro;*/
 /*}*/
-.getZx{
+.getZx {
     text-align: center;
     height: 12vw;
     line-height: 12vw;
-    background-color: #499def;
+    background-color: #B3DA43;
     color: #fff;
     font-size: 5vw;
     font-weight: bold;
@@ -199,29 +254,33 @@ ol{
     width: 80vw;
     margin: 0 auto;
 }
-.btmBtn{
+
+.btmBtn {
     width: 100%;
     position: fixed;
     bottom: 0;
     background-color: rgba(237, 78, 78, 0);
-    padding:4vw 0;
+    padding: 4vw 0;
 }
-.noMsg{
-    background-color: #ada9a9!important;
+
+.noMsg {
+    background-color: #ada9a9 !important;
 }
-.userCmp .cmpName{
+
+/*.userCmp .cmpName{
     padding: 0 2vw;
     text-align: left;
     line-height: normal;
 }
 .userCmp input{
     width: 41vw;
-}
-.carHint{
+}*/
+.carHint {
     margin: -1.5vw 0 1.5vw 30vw;
     font-size: 3.5vw;
     color: #FF4F51;
 }
+
 /*公共模态框样式*/
 /*box-shadow: 0 0 4vw 1vw #3c3c3c;*/
 .hintBox {
@@ -233,6 +292,7 @@ ol{
     left: 0;
     z-index: 999;
 }
+
 .hintBox .hintFrame {
     text-align: center;
     box-sizing: border-box;
@@ -249,28 +309,32 @@ ol{
     -moz-box-shadow: 0 0 4vw 0.5vw #3c3c3c;
     box-shadow: 0 0 4vw 0.5vw #3c3c3c;
 }
-.hintBox .hintFrame .headHint{
+
+.hintBox .hintFrame .headHint {
     width: 100%;
     height: 8vw;
     line-height: 8vw;
     text-align: center;
     font-size: 4.5vw;
     color: #fff;
-    background: url("../img/icon01.png") 62vw center #e69c45    no-repeat;
+    background: url("../img/icon01.png") 62vw center #e69c45 no-repeat;
     /*border-bottom: 1px solid #dad5d5;*/
     background-size: 10%;
 }
-.hintBox .hintFrame .hintContent{
+
+.hintBox .hintFrame .hintContent {
     width: 100%;
     display: inline-block;
-    padding:3vw;
+    padding: 3vw;
     text-align: center;
 }
-.hintBox .hintFrame .hintContent p{
+
+.hintBox .hintFrame .hintContent p {
     padding: 1.5vw 0;
     font-size: 4vw;
 }
-.btmOk{
+
+.btmOk {
     float: left;
     width: 100%;
     height: 8vw;
@@ -281,7 +345,8 @@ ol{
     color: #000;
     background-color: #efc884;
 }
-.btmQx{
+
+.btmQx {
     float: left;
     width: 50%;
     height: 8vw;
@@ -289,5 +354,5 @@ ol{
     text-align: center;
     line-height: 8vw;
     color: #fff;
-    background-color:#499def;
+    background-color: #499def;
 }

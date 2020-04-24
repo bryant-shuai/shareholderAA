@@ -1,53 +1,59 @@
 <!--采集信息-->
 <!--http://www.51clm.com/hhcx/uat/estar-pic-yr/wx/wxAuth/check.do?ownerKey=2&attch=source:002,cmpUnits:01&authUrl=http://www.51clm.com/hhcx/uat/estar-pic-yr/wx/DR/shareholderCJ/index.htmlJINGHAO/CjIndex-->
 <section class="messagePage">
-    <div class="msgHeaderImg"></div>
+    <!--<div class="msgHeaderImg"></div>-->
     <div class="inputMsg">
-        <div class="msgTitle">完善信息</div>
         <div class="userNm magBtm">
-            <span>姓名：</span>
             <input type="text"
                    maxlength="15" class="placeholderColor"
                    ng-model="pageData.userInfo.name"
-                   placeholder="请输入 姓名"/>
+                   placeholder="姓名*"/>
+            <img class="icon" src="./img/name-icon.png"/>
+        </div>
+        <!--<div class="carHint">参与享受用车服务必填</div>-->
+        <div class="phoneNb magBtm">
+            <input type="tel" class="placeholderColor inputTel"
+                   maxlength="11"
+                   ng-model="pageData.userInfo.phoneNb"
+                   placeholder="手机号*"/>
+            <img class="icon" src="./img/phone-icon.png"/>
+            <div class="getCode" ng-class="{noMsg:noMsg}" ng-click="getCode()">{{codeText}}{{second}}</div>
+        </div>
+        <div class="yzCode magBtm">
+            <input type="tel"
+                   class="placeholderColor"
+                   maxlength="4"
+                   placeholder="输入验证码*"
+                   ng-model="pageData.userInfo.yzCode"/>
+            <img class="icon" src="./img/message-icon.png"/>
         </div>
         <div class="userCnb magBtm">
-            <span>身份证号：</span>
             <input type="text" maxlength="18" class="placeholderColor"
                    ng-model="pageData.userInfo.idCard"
                    ng-change="toUppercase()"
-                   placeholder="请输入 身份证号"/>
+                   placeholder="身份证号*"/>
+            <img class="icon" src="./img/idcard-icon.png"/>
+        </div>
+        <div class="userCmp magBtm">
+            <input type="text" maxlength="18" class="placeholderColor"
+                   ng-model="pageData.userInfo.cmpName"
+                   ng-change="toUppercase()"
+                   placeholder="公航旅/单位*"/>
+            <img class="icon" src="./img/cmp-icon.png" style="top: 6vw;"/>
+            <span class="info">此活动为公航旅企业员工专属福利，转发无效哦</span>
+            <span class="info">您的信任，是我们提供专属福利的不竭动力</span>
         </div>
         <div class="carNub magBtm">
-            <span>车牌号：</span>
             <input type="text"  class="placeholderColor"
                    maxlength="8"
                    ng-change="inputCar()"
                    ng-model="pageData.userInfo.carNub"
-                   placeholder="车牌格式 (例: 京A12345) (选填)"/>
-        </div>
-        <!--<div class="carHint">参与享受用车服务必填</div>-->
-        <div class="phoneNb magBtm">
-            <span>手机号：</span> <input type="tel" class="placeholderColor inputTel"
-                                     maxlength="11"
-                                     ng-model="pageData.userInfo.phoneNb"
-                                     placeholder="请输入 手机号"/>
-        </div>
-        <div class="yzCode magBtm">
-            <span class="codeText">验证码：</span>
-            <input type="tel"
-                   class="inputCode"
-                   maxlength="4"
-                   ng-model="pageData.userInfo.yzCode"/>
-            <div class="getCode" ng-class="{noMsg:noMsg}" ng-click="getCode()">{{codeText}}{{second}}</div>
-        </div>
-        <div class="userCmp magBtm">
-            <span>所属单位：</span>
-            <span class="cmpName">{{pageData.cmpName}}</span>
+                   placeholder="车牌号"/>
+            <img class="icon" src="./img/chepai-icon.png" style="top: 6vw;" />
+            <span class="info">了解多一点,只为向您提供更多专属服务和免费体验</span>
         </div>
         <div>
             <div class="getZx" ng-click="promptlyDraw()" style="margin-top: 6vw" ng-class="{noMsg:noSubmit}">提交</div>
         </div>
     </div>
-    <div class="msgFooterImg"></div>
 </section>
