@@ -1,0 +1,20 @@
+<div class="hintBox" ng-hide="serviceBox">
+    <div class="hintFrame">
+        <div class="headHint" ng-click="alertHint()" style="{{bgColor('title')}}">提示信息</div>
+        <div class="hintContent">{{hintLanguage}}</div>
+        <div class="btmOk" ng-click="alertHint()" style="{{bgColor('ok')}}">确定</div>
+        <!--<div class="btmQx" ng-click="alertHint()">取消</div>-->
+    </div>
+</div>
+
+<div class="hintBox" ng-show="serviceBox">
+    <div class="hintFrame">
+        <div class="headHint" ng-click="alertHint()">服务商信息</div>
+        <div class="hintContent" style="text-align: left">
+            <p>服务商信息：北京东仁金舆汽车销售服务有限公司</p>
+            <p>联系人：王玉娇(18518443393)</p>
+            <p>地址：北京市朝阳区姚家园路平房桥东2公里路南</p>
+        </div>
+        <div class="btmOk" ng-click="alertHint()">确定</div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<!--采集信息-->
+<!--http://www.51clm.com/hhcx/uat/estar-pic-yr/wx/wxAuth/check.do?ownerKey=2&attch=source:002,cmpUnits:01&authUrl=http://www.51clm.com/hhcx/uat/estar-pic-yr/wx/DR/shareholderCJ/index.htmlJINGHAO/CjIndex-->
+<section class="messagePage">
+    <div class="msgHeaderImg"></div>
+    <div class="inputMsg">
+        <div class="msgTitle">完善信息</div>
+        <div class="userNm magBtm">
+            <span>姓名：</span>
+            <input type="text"
+                   maxlength="15" class="placeholderColor"
+                   ng-model="pageData.userInfo.name"
+                   placeholder="请输入 姓名"/>
+        </div>
+        <div class="userCnb magBtm">
+            <span>身份证号：</span>
+            <input type="text" maxlength="18" class="placeholderColor"
+                   ng-model="pageData.userInfo.idCard"
+                   ng-change="toUppercase()"
+                   placeholder="请输入 身份证号"/>
+        </div>
+        <div class="carNub magBtm">
+            <span>车牌号：</span>
+            <input type="text"  class="placeholderColor"
+                   maxlength="8"
+                   ng-change="inputCar()"
+                   ng-model="pageData.userInfo.carNub"
+                   placeholder="车牌格式 (例: 京A12345) (选填)"/>
+        </div>
+        <!--<div class="carHint">参与享受用车服务必填</div>-->
+        <div class="phoneNb magBtm">
+            <span>手机号：</span> <input type="tel" class="placeholderColor inputTel"
+                                     maxlength="11"
+                                     ng-model="pageData.userInfo.phoneNb"
+                                     placeholder="请输入 手机号"/>
+        </div>
+        <div class="yzCode magBtm">
+            <span class="codeText">验证码：</span>
+            <input type="tel"
+                   class="inputCode"
+                   maxlength="4"
+                   ng-model="pageData.userInfo.yzCode"/>
+            <div class="getCode" ng-class="{noMsg:noMsg}" ng-click="getCode()">{{codeText}}{{second}}</div>
+        </div>
+        <div class="userCmp magBtm">
+            <span>所属单位：</span>
+            <span class="cmpName">{{pageData.cmpName}}</span>
+        </div>
+        <div>
+            <div class="getZx" ng-click="promptlyDraw()" style="margin-top: 6vw" ng-class="{noMsg:noSubmit}">提交</div>
+        </div>
+    </div>
+    <div class="msgFooterImg"></div>
+</section>
