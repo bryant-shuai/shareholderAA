@@ -1,4 +1,3 @@
-
 app.service("informationService", ["$location",
     function ($location) {
 
@@ -9,7 +8,7 @@ app.service("informationService", ["$location",
             /* 验证手机号 */
             "tel": /^1(3|4|5|6|7|8|9)\d{9}$/,
             //验证邮编
-            "post_code" :/^[0-9][0-9]{5}$/,
+            "post_code": /^[0-9][0-9]{5}$/,
             //验证车牌号
             "licenseNo": /^(([\u4e00-\u9fa5]{1}[A-Z]{1})[-]?|([wW][Jj][\u4e00-\u9fa5]{1}[-]?)|([a-zA-Z]{2}))([A-Za-z0-9]{5}|[DdFf][A-HJ-NP-Za-hj-np-z0-9][0-9]{4}|[0-9]{5}[DdFf])$/,
 
@@ -36,7 +35,9 @@ app.service("informationService", ["$location",
         // 返回 微信页面 attch 里面的参数
         this.wxAttchParam = function () {
             var attch = this.getUrlParam("attch");
-            if (!attch) { return; }
+            if (!attch) {
+                return;
+            }
 
             var attchArr = attch.split(",");
             var param = {};
@@ -60,7 +61,7 @@ app.service("informationService", ["$location",
             var u = navigator.userAgent;
 
             //android 终端
-            if ( u.indexOf('Android') > -1 || u.indexOf('Adr') > -1 ) {
+            if (u.indexOf('Android') > -1 || u.indexOf('Adr') > -1) {
                 return "isAndroid";
             }
 
@@ -173,7 +174,7 @@ app.service("informationService", ["$location",
 
             // 身份证号 获取性别
             var sexNum = id.substring(id.length - 2, id.length - 1);
-            var isEven = ( sexNum % 2 ) === 0;
+            var isEven = (sexNum % 2) === 0;
             obj["sex"] = isEven ? "2" : "1";       // 姓别 1 -> 男 | 2 -> 女
 
             // 身份证号 获取生日
@@ -206,36 +207,36 @@ app.service("informationService", ["$location",
         };
 
         //注册正则验证
-        this.verify=function(userData,isCode,alt){
-            if(!userData.phoneNb){
+        this.verify = function (userData, isCode, alt) {
+            if (!userData.phoneNb) {
                 alt("请输入 您的手机号码");
                 return false;
             }
-            if(!this.getValidation(userData.phoneNb, "tel")){
+            if (!this.getValidation(userData.phoneNb, "tel")) {
                 alt("请检查 手机号格式是否正确");
                 return false;
             }
-            if(!isCode && userData.anewGet==""){
+            if (!isCode && userData.anewGet == "") {
                 alt("请先获取 验证码");
                 return false;
             }
-            if(!isCode && userData.anewGet==true){
+            if (!isCode && userData.anewGet == true) {
                 alt("验证码失效 请重新获取");
                 return false;
             }
-            if(!userData.yzCode){
+            if (!userData.yzCode) {
                 alt("请输入 验证码");
                 return false;
             }
-            if(userData.yzCode.length!=4){
+            if (userData.yzCode.length != 4) {
                 alt("请输入四位验证码");
                 return false
             }
-            if (/[\u4E00-\u9FA5]/g.test(userData.yzCode)){
-                alt( "验证码不能含有汉字！" );
+            if (/[\u4E00-\u9FA5]/g.test(userData.yzCode)) {
+                alt("验证码不能含有汉字！");
                 return false
             }
-            if((userData.yzCode).toLowerCase()!=(userData.backCode).toLowerCase()){
+            if ((userData.yzCode).toLowerCase() != (userData.backCode).toLowerCase()) {
                 alt("请输入正确的验证码");
                 return false
             }
@@ -243,59 +244,59 @@ app.service("informationService", ["$location",
         };
 
         //立即抽奖 正则验证
-        this.verify_s=function(userData,isCode,alt){
-            var reg1=/^[\u0391-\uFFE5]+$/;  // 中文正则
-            var reg2=/^[A-Za-z]+$/;          // 英文正则
-            var reg3=/^[0-9]+$/;          // 英文正则
-            if(!userData.name){
+        this.verify_s = function (userData, isCode, alt) {
+            var reg1 = /^[\u0391-\uFFE5]+$/;  // 中文正则
+            var reg2 = /^[A-Za-z]+$/;          // 英文正则
+            var reg3 = /^[0-9]+$/;          // 英文正则
+            if (!userData.name) {
                 alt("请输入 您的姓名");
                 return false
             }
-            if(!(reg1.test(userData.name) ||reg2.test(userData.name))){
+            if (!(reg1.test(userData.name) || reg2.test(userData.name))) {
                 alt("姓名中只能全部是 汉字 或 英文");
                 return false;
             }
-
-            if(!userData.idCard){
-                alt("请输入 您的身份证号");
-                return false
-            }
-            if (!this.getValidation(userData.idCard, "IDCARD")) {
-                alt("请检查 身份证号码是否正确");
-                return false;
-            }
-            if(userData.carNub){
-                if (!this.getValidation(userData.carNub, "licenseNo")) {
-                    alt("请检查 车牌号是否正确");
-                    return false;
-                }
-            }
-            if(!userData.phoneNb){
+            // 喜马拉雅的活动 身份证号和车牌号不是必录的 暂时去掉校验
+            // if (!userData.idCard) {
+            //     alt("请输入 您的身份证号");
+            //     return false
+            // }
+            // if (!this.getValidation(userData.idCard, "IDCARD")) {
+            //     alt("请检查 身份证号码是否正确");
+            //     return false;
+            // }
+            // if (userData.carNub) {
+            //     if (!this.getValidation(userData.carNub, "licenseNo")) {
+            //         alt("请检查 车牌号是否正确");
+            //         return false;
+            //     }
+            // }
+            if (!userData.phoneNb) {
                 alt("请输入 您的手机号码");
                 return false;
             }
-            if(!this.getValidation(userData.phoneNb, "tel")){
+            if (!this.getValidation(userData.phoneNb, "tel")) {
                 alt("请检查 手机号格式是否正确");
                 return false;
             }
-            if(!isCode && userData.anewGet==""){
+            if (!isCode && userData.anewGet == "") {
                 alt("请先获取 验证码");
                 return false;
             }
-            if(!isCode && userData.anewGet==true){
+            if (!isCode && userData.anewGet == true) {
                 alt("验证码失效 请重新获取");
                 return false;
             }
-            if(!userData.yzCode){
+            if (!userData.yzCode) {
                 alt("请输入 验证码");
                 return false;
             }
-            if(userData.yzCode.length!=4){
+            if (userData.yzCode.length != 4) {
                 alt("请输入四位验证码");
                 return false
             }
-            if (/[\u4E00-\u9FA5]/g.test(userData.yzCode)){
-                alt( "验证码不能含有汉字！" );
+            if (/[\u4E00-\u9FA5]/g.test(userData.yzCode)) {
+                alt("验证码不能含有汉字！");
                 return false
             }
             //if((userData.yzCode).toLowerCase()!=(userData.backCode).toLowerCase()){
