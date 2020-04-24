@@ -1,0 +1,44 @@
+<!--免检活动录入信息页面-->
+<!--http://www.51clm.com/hhcx/uat/estar-pic-yr/wx/wxAuth/check.do?ownerKey=2&attch=source:002,cmpUnits:01&authUrl=http://www.51clm.com/hhcx/uat/estar-pic-yr/wx/DR/shareholderCJ/index.htmlJINGHAO/carNub-->
+<section class="messagePage">
+    <div class="msgHeaderImg"></div>
+    <div class="inputMsg">
+        <div class="carTitle">报名参加</div>
+        <div class="userNm magBtm">
+            <span>姓名：</span>
+            <input type="text"
+                   maxlength="15" class="placeholderColor" disabled
+                   ng-model="pageData.userInfo.name"/>
+        </div>
+        <div class="phoneNb magBtm">
+            <span>手机号：</span>
+            <input type="tel" class="placeholderColor" disabled
+                   maxlength="11"
+                   ng-model="pageData.userInfo.phoneNb"/>
+        </div>
+        <div class="carModel magBtm">
+            <span>品牌型号：</span>
+            <input type="text"  class="placeholderColor"
+                   maxlength="30"
+                   ng-model="pageData.userInfo.carModel"
+                   placeholder="请输入 品牌型号"/>
+        </div>
+        <div class="carNub magBtm">
+            <span>车牌号：</span>
+            <input type="text"  class="placeholderColor" id="carNub"
+                   maxlength="8"
+                   ng-model="pageData.userInfo.carNub"
+                   placeholder="请输入车牌( 例：京A12345 )"/>
+        </div>
+        <div class="userCmp magBtm">
+            <span>所属单位：</span>
+            <input type="text" maxlength="35" class="placeholderColor" disabled
+                   style="width: 64vw"
+                   ng-model="pageData.cmpName"/>
+        </div>
+        <div>
+            <div class="getZx" ng-click="carData()" style="margin-top: 6vw" ng-class="{noMsg:noSubmit}">提交</div>
+        </div>
+    </div>
+    <div class="msgFooterImg"></div>
+</section>
