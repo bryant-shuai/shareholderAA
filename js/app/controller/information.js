@@ -95,9 +95,6 @@ app.controller("informationCtrl", [
         $scope.codeText = "获取验证码";
 
         $scope.getCode = function () {
-            if ($scope.noMsg || $scope.noSubmit) {
-                return
-            }
             var phoneNo = $scope.pageData.userInfo.phoneNb;
             var reg = /^1(3|4|5|6|7|8|9)\d{9}$/;
             if (!phoneNo) {
