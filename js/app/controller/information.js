@@ -95,9 +95,6 @@ app.controller("informationCtrl", [
         $scope.codeText = "获取验证码";
 
         $scope.getCode = function () {
-            if ($scope.noMsg || $scope.noSubmit) {
-                return
-            }
             var phoneNo = $scope.pageData.userInfo.phoneNb;
             var reg = /^1(3|4|5|6|7|8|9)\d{9}$/;
             if (!phoneNo) {
@@ -154,7 +151,7 @@ app.controller("informationCtrl", [
             var userData = $scope.pageData.userInfo;
             var attch = $scope.pageData.wxAttchParam;
             var _data = {
-                "type": val,//1.判断是否完善信息2：完善信息提交接口3：判断是否已经领取奖品4：判断是否参加过车检活动5：车检活动提交接口
+                "type": val, // 1.判断是否完善信息2：完善信息提交接口3：判断是否已经领取奖品4：判断是否参加过车检活动5：车检活动提交接口 需要和后台人员确认接口 TODO
                 "phone": userData.phoneNb,
                 "name": userData.name,
                 "idCard": userData.idCard,
@@ -195,7 +192,7 @@ app.controller("informationCtrl", [
             $scope.getUserMsg();
         };
         //立即领取
-        $scope.promptlyDraw = function () {
+        $scope.promptlySubmit = function () {
             if ($scope.noSubmit) {
                 return
             }
@@ -218,60 +215,14 @@ app.controller("informationCtrl", [
                     //$timeout(function(){
                     //    WeixinJSBridge.call("closeWindow");
                     //},2500);
-                    $scope.draw();
+                    $scope.onLocation("/CjIndex"); // 跳到恭喜获奖页面 TODO
                     return;
                 }
                 $scope.alertHint(success.msg);
             });
-        };
-        //提交车辆信息
-        $scope.carData = function () {
-            if ($scope.noSubmit) {
-                return
-            }
-            var userData = $scope.pageData.userInfo;
-            if (!userData.carModel) {
-                $scope.alertHint("请输入 车辆品牌型号");
-                return
-            }
-            if (!userData.carNub) {
-                $scope.alertHint("请输入 车牌号");
-                return
-            }
-            if (!informationService.getValidation(userData.carNub, "licenseNo")) {
-                $scope.alertHint("请检查 车牌号是否正确");
-                return;
-            }
-            var data = $scope.submitData("5");
-            $scope.pageData.show.loading = true;
-            apiService.getJson({
-                "url": "gfSharePerfect",
-                "data": {"data": data}
-            }).then(function (success) {
-                $scope.pageData.show.loading = false;
-                if (success.success) {
-                    $scope.alertHint("报名成功");
-                    $scope.noSubmit = true;
-                    $timeout(function () {
-                        WeixinJSBridge.call("closeWindow");
-                    }, 2500);
-                    return;
-                }
-                $scope.alertHint(success.msg);
-            });
-        };
-        //去抽奖
-        $scope.draw = function () {
-            var openId = $location.search()["OpenId"];
-            var phoneNo = $scope.pageData.userInfo.phoneNb;
-            var attch = $scope.pageData.wxAttchParam;
-            window.location.href = "http://www.51clm.com/hhcx/uat/estar-pic-yr/wx/wxLuckyGFPerfectController.do?bodyPage&openId="
-                + openId + "&phone=" + phoneNo + "&actType=" + attch.source;
-            //window.location.href=" https://weixin.ypic.cn/wx/wxLuckyPerfectController.do?bodyPage&openId="
-            //    +openId+"&phone="+phoneNo+"&actType="+attch.source;
         };
 
-        //判断是否已经领取奖品
+        // 判断是否已经领取奖品
         $scope.isGetPrize = function () {
             var data = $scope.submitData("3");
             $scope.pageData.show.loading = true;
