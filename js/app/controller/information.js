@@ -417,7 +417,7 @@ app.controller("informationCtrl", [
         /* 生命周期 */
         $rootScope.$on("$routeChangeSuccess", function () {
             //判断是否关注 和 状态信息
-            // $scope.isAttention();
+            $scope.isAttention();
         });
     }
 ]);
