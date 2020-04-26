@@ -193,9 +193,6 @@ app.controller("informationCtrl", [
         };
         //立即领取
         $scope.promptlySubmit = function () {
-            if ($scope.noSubmit) {
-                return
-            }
             var userData = $scope.pageData.userInfo;
             var alt = $scope.alertHint;
             var isCode = $scope.noMsg;
@@ -215,7 +212,7 @@ app.controller("informationCtrl", [
                     //$timeout(function(){
                     //    WeixinJSBridge.call("closeWindow");
                     //},2500);
-                    $scope.onLocation("/CjIndex"); // 跳到恭喜获奖页面 TODO
+                    $scope.onLocation("/information"); // 跳到恭喜获奖页面 TODO
                     return;
                 }
                 $scope.alertHint(success.msg);
